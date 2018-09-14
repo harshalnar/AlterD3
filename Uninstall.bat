@@ -1,3 +1,3 @@
 pushd %~dp0
-PowerShell -C "./Uninstaller.ps1"
+PowerShell -C "./Uninstall.ps1"
 popd

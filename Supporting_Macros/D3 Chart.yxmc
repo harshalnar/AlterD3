@@ -1,0 +1,1108 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2018.3">
+  <Nodes>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="246" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="&quot;&lt;script&gt;function alteryxData() {&#xA;    return &quot; + [JSON] + &quot;;&#xA;}&#xA;&lt;/script&gt;&quot;" field="JSON" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>JSON = "&lt;script&gt;function alteryxData() {
+    return " + [JSON] + ";
+}
+&lt;/script&gt;"...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="JSON" size="1073741823" source="Formula: &quot;&lt;script&gt;function alteryxData() {&#xA;    return &quot; + [JSON] + &quot;;&#xA;}&#xA;&lt;/script&gt;&quot;" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings>
+        <Position x="150" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Column">False</Value>
+          <Value name="Row">True</Value>
+          <Value name="2Dim">False</Value>
+          <Value name="WriteFile">False</Value>
+          <Value name="File Browse" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="JSON" size="1073741823" source="Formula: &quot;[&quot; + [Concat_Concat_JSON_Field] + &quot;]&quot;" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="CReW_JSONCreate.yxmc" />
+    </Node>
+    <Node ToolID="47">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="54" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="False" />
+          <Name>Input</Name>
+          <Abbrev />
+          <ShowFieldMap value="False" />
+          <Optional value="False" />
+          <TextInput>
+            <Configuration>
+              <NumRows value="5" />
+              <Fields>
+                <Field name="x" />
+                <Field name="y" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>1</c>
+                  <c>1</c>
+                </r>
+                <r>
+                  <c>2</c>
+                  <c>4</c>
+                </r>
+                <r>
+                  <c>3</c>
+                  <c>9</c>
+                </r>
+                <r>
+                  <c>4</c>
+                  <c>16</c>
+                </r>
+                <r>
+                  <c>5</c>
+                  <c>25</c>
+                </r>
+              </Data>
+            </Configuration>
+          </TextInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>Text Input (1)</Name>
+          <DefaultAnnotationText />
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="x" source="TextInput:" type="Byte" />
+            <Field name="y" source="TextInput:" type="Byte" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="31">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="54" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="1" />
+          <Fields>
+            <Field name="URL" />
+          </Fields>
+          <Data>
+            <r>
+              <c>https://d3js.org/d3.v4.min.js</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="URL" size="29" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="32">
+      <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
+        <Position x="426" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <URLField>URL</URLField>
+          <OutputMode>String</OutputMode>
+          <CodePage>65001</CodePage>
+          <EncodeURLs value="False" />
+          <Headers>
+            <NameValues />
+            <Fields orderChanged="False">
+              <Field name="URL" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </Fields>
+          </Headers>
+          <Payload>
+            <HTTPAction>GET</HTTPAction>
+            <QueryStringBodyMode>Compose</QueryStringBodyMode>
+            <ComposeNameValues />
+            <ComposeFields orderChanged="False">
+              <Field name="URL" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </ComposeFields>
+          </Payload>
+          <UserName />
+          <Password />
+          <numConnections>2</numConnections>
+          <Timeout>600</Timeout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field description="TextToColumns: Parsed from URL" name="URL" size="29" source="TextToColumns: Parsed from URL" type="String" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
+    </Node>
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="522" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="'&lt;script&gt;'+[DownloadData]+'&lt;/script&gt;'" field="DownloadData" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[DownloadData = '<script>'+[DownloadData]+'</script>'
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field description="TextToColumns: Parsed from URL" name="URL" size="29" source="TextToColumns: Parsed from URL" type="String" />
+            <Field name="DownloadData" size="1073741823" source="Formula: '&lt;script&gt;'+[DownloadData]+'&lt;/script&gt;'" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="34">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="714" y="402" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="True" />
+          <OutputOrder>
+            <Connection>#2</Connection>
+            <Connection>#1</Connection>
+            <Connection>#4</Connection>
+            <Connection>#3</Connection>
+          </OutputOrder>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="HTML" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="35">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="366" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="JSON" selected="True" rename="HTML" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="HTML" size="1073741823" source="Formula: &quot;&lt;script&gt;function alteryxData() {&#xA;    return &quot; + [JSON] + &quot;;&#xA;}&#xA;&lt;/script&gt;&quot;" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="36">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="618" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="DownloadData" selected="True" rename="HTML" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="HTML" size="1073741823" source="Formula: '&lt;script&gt;'+[DownloadData]+'&lt;/script&gt;'" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="37">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="54" y="606" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="1" />
+          <Fields>
+            <Field name="HTML" />
+          </Fields>
+          <Data>
+            <r>
+              <c>&lt;style&gt;</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="HTML" size="7" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="38">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="810" y="402" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="HTML" action="Concat" rename="HTML">
+              <Concat_Start />
+              <Separator>\n</Separator>
+              <Concat_End />
+            </SummarizeField>
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="HTML" size="1073741823" source="Summarize: Concat - HTML" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="51">
+      <GuiSettings Plugin="PortfolioPluginsGui.ComposerText.PortfolioComposerText">
+        <Position x="1002" y="402" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <HeaderMode value="False" />
+          <RawMode value="True" />
+          <ValidatePCXML value="True" />
+          <Message>[HTML:A]</Message>
+          <RichTextMode value="False" />
+          <RichTextString><![CDATA[{\rtf1\ansi\ansicpg1252\deff0\deflang2057{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+\viewkind4\uc1\pard\fs24\par
+}
+]]></RichTextString>
+          <Styles>
+            <Style Name="TextStyle" />
+          </Styles>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Raw PCXML
+No Text Styling</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="HTML" size="1073741823" source="Formula: '&lt;htmlpassthrough&gt;&lt;![CDATA[' + [HTML] + ']' + ']&gt;&lt;/htmlpassthrough&gt;'" type="V_WString" />
+            <Field name="Text" size="2147483647" source="Report:Text:" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="PortfolioPluginsEngine.dll" EngineDllEntryPoint="AlteryxPortfolioComposerTextPlugin" />
+    </Node>
+    <Node ToolID="53">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1098" y="402" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="HTML" selected="False" />
+            <SelectField field="Text" selected="True" rename="Output" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Output" size="2147483647" source="Report:Text:" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="54">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="906" y="402" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="'&lt;htmlpassthrough&gt;&lt;![CDATA[' + [HTML] + ']' + ']&gt;&lt;/htmlpassthrough&gt;'" field="HTML" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[HTML = '<htmlpassthrough><![CDATA[' + [HTML] + ']' + ']></htmlpassthrough>'
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="HTML" size="1073741823" source="Formula: '&lt;htmlpassthrough&gt;&lt;![CDATA[' + [HTML] + ']' + ']&gt;&lt;/htmlpassthrough&gt;'" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="55">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="1194" y="402" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>Output</Name>
+          <Abbrev />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="56">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+        <Position x="54" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>URLS</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="57">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="54" y="126" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="59">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+        <Position x="54" y="450" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>HTML</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="60">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="54" y="528" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="61">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.CheckBoxGroup.CheckBoxGroup">
+        <Position x="714" y="594" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>SaveFile</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="64">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+        <Position x="894" y="594" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>FileName</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="65">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="906" y="678" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="67">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Condition.Condition">
+        <Position x="726" y="690" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="68">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="678" y="846" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="69">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="762" y="774" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="71">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="234" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Replace([URL], &quot;\r&quot;, &quot;&quot;)" field="URL" size="29" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[URL = Replace([URL], "\r", "")
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="URL" size="29" source="Formula: Replace([URL], &quot;\r&quot;, &quot;&quot;)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="72">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="330" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>URL</Field>
+          <Delimeters value="\n" />
+          <NumFields value="1" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field description="TextToColumns: Parsed from URL" name="URL" size="29" source="TextToColumns: Parsed from URL" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="62">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="726" y="1038" width="168.9694" height="50" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Save To HTML File</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="True" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="58">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="906" y="1086" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="0">C:\temp\test.html</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <LineEndStyle>CRLF</LineEndStyle>
+                <Delimeter>\0</Delimeter>
+                <ForceQuotes>Never</ForceQuotes>
+                <HeaderRow>False</HeaderRow>
+                <CodePage>28591</CodePage>
+                <WriteBOM>True</WriteBOM>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>test.html</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="47" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="71" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="32" Connection="Output" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="Output" />
+      <Destination ToolID="36" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="34" Connection="Output" />
+      <Destination ToolID="38" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="34" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="36" Connection="Output" />
+      <Destination ToolID="34" Connection="Input" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="37" Connection="Output" />
+      <Destination ToolID="34" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="38" Connection="Output" />
+      <Destination ToolID="54" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="38" Connection="Output" />
+      <Destination ToolID="58" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="65" Connection="Action" />
+      <Destination ToolID="58" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="51" Connection="Output" />
+      <Destination ToolID="53" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="53" Connection="Output" />
+      <Destination ToolID="55" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="54" Connection="Output" />
+      <Destination ToolID="51" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="56" Connection="Question" />
+      <Destination ToolID="57" Connection="Question" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="57" Connection="Action" />
+      <Destination ToolID="31" Connection="Action" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="59" Connection="Question" />
+      <Destination ToolID="60" Connection="Question" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="60" Connection="Action" />
+      <Destination ToolID="37" Connection="Action" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="61" Connection="Question" />
+      <Destination ToolID="67" Connection="Question" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="64" Connection="Question" />
+      <Destination ToolID="65" Connection="Question" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="67" Connection="True Condition" />
+      <Destination ToolID="68" Connection="Condition" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="67" Connection="False Condition" />
+      <Destination ToolID="69" Connection="Condition" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="68" Connection="Action" />
+      <Destination ToolID="62" Connection="Action" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="69" Connection="Action" />
+      <Destination ToolID="62" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="71" Connection="Output" />
+      <Destination ToolID="72" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="72" Connection="Output" />
+      <Destination ToolID="32" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="1" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (55)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>URLS</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>HTML</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>SaveFile</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>FileName</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>D3 Chart</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions>
+        <NoCondition>
+          <Type>NoCondition</Type>
+          <Description>(Always Run)</Description>
+          <True>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="57" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText>https://d3js.org/d3.v4.min.js</ReplaceText>
+              <Destination>31/Data/r/c</Destination>
+            </Action>
+            <Action>
+              <Type>Dynamic</Type>
+              <Description />
+              <ToolId value="60" />
+              <Expression>{{INPUT}}</Expression>
+              <Destination>37/Data/r[1]/c[1]</Destination>
+              <Mapping>Update Cell</Mapping>
+              <Mode>Expression</Mode>
+              <DynamicConfiguration>row	1
+column	1</DynamicConfiguration>
+              <DefaultConfiguration value="True" />
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="65" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText>C:\temp\test.html</ReplaceText>
+              <Destination>58/File</Destination>
+            </Action>
+          </True>
+        </NoCondition>
+        <Condition>
+          <Type>Condition</Type>
+          <Description />
+          <ToolId value="67" />
+          <Expression>[#1]</Expression>
+          <True>
+            <Action>
+              <Type>Dynamic</Type>
+              <Description />
+              <ToolId value="68" />
+              <Expression>"False"</Expression>
+              <Destination>62/Disabled/@value</Destination>
+              <Mapping>Enable/Disable Container</Mapping>
+              <Mode>Expression</Mode>
+              <DynamicConfiguration>Enabled|Disabled	1</DynamicConfiguration>
+              <DefaultConfiguration value="True" />
+            </Action>
+          </True>
+          <False>
+            <Action>
+              <Type>Dynamic</Type>
+              <Description />
+              <ToolId value="69" />
+              <Expression>"True"</Expression>
+              <Destination>62/Disabled/@value</Destination>
+              <Mapping>Enable/Disable Container</Mapping>
+              <Mode>Expression</Mode>
+              <DynamicConfiguration>Enabled|Disabled	2</DynamicConfiguration>
+              <DefaultConfiguration value="False" />
+            </Action>
+          </False>
+        </Condition>
+      </Actions>
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (2)</Name>
+          <ToolId value="2" />
+          <Questions>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (55)</Description>
+              <Name>Macro Output (55)</Name>
+              <ToolId value="55" />
+            </Question>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>Source JS URLs</Description>
+              <Name>URLS</Name>
+              <ToolId value="56" />
+              <Default>https://d3js.org/d3.v4.min.js</Default>
+              <Password value="False" />
+              <Multiline value="True" />
+              <Hidden value="False" />
+            </Question>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>Page Content</Description>
+              <Name>HTML</Name>
+              <ToolId value="59" />
+              <Default><![CDATA[
+<style>
+</style>
+<div id="ChartHtml">
+    <div id="chart1" style="width:800px; height:600px;background-color: white;">
+        <svg id="chartSVG" style="width:800px; height:600px;background-color: white;"></svg>
+    </div>
+    <script>
+        const svg = d3.select("#chartSVG")
+        const margin = 30
+        const width = 800
+        const height = 600
+
+        const data = alteryxData()
+        const color = d3.scaleOrdinal(d3.schemeCategory20)
+        const x = d3.scaleLinear().domain([0, d3.max(data.map(d => d.x))]).range([0, width - 2 * margin])
+        const y = d3.scaleLinear().domain([0, d3.max(data.map(d => d.y))]).range([height - 2 * margin, 0])
+
+        const chart = svg
+            .attr("width", width)
+            .attr("height", height)
+            .append("g")
+            .attr("transform", `translate(${margin},${margin})`)
+
+        chart
+            .selectAll("rect")
+            .data(data)
+            .enter().append("rect")
+            .attr("fill", d => color(d.x))
+            .attr("width", 19)
+            .attr("height", (d) => (height - y(d.y) - 2 * margin))
+            .attr("x", (d) =>  x(d.x))
+            .attr("y", (d) => y(d.y))
+
+        chart.append("g").attr("transform", `translate(0,${height - 2 * margin})`).call(d3.axisBottom(x))
+        chart.append("g").call(d3.axisLeft(y));
+    </script>
+</div>
+              ]]></Default>
+              <Password value="False" />
+              <Multiline value="True" />
+              <Hidden value="False" />
+            </Question>
+            <Question>
+              <Type>BooleanGroup</Type>
+              <Description>Save to HTML FIle</Description>
+              <Name>SaveFile</Name>
+              <ToolId value="61" />
+              <Questions>
+                <Question>
+                  <Type>TextBox</Type>
+                  <Description>File Name</Description>
+                  <Name>FileName</Name>
+                  <ToolId value="64" />
+                  <Default>output.html</Default>
+                  <Password value="False" />
+                  <Multiline value="False" />
+                  <Hidden value="False" />
+                </Question>
+              </Questions>
+              <Default value="False" />
+              <Collapsable value="True" />
+            </Question>
+          </Questions>
+        </Question>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (3)</Name>
+          <ToolId value="3" />
+          <Questions />
+        </Question>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Input</Description>
+          <Name>Tab (4)</Name>
+          <ToolId value="4" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (47)</Description>
+              <Name>Macro Input (47)</Name>
+              <ToolId value="47" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImage>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</MacroImage>
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="7" Selected="True" />
+        <Tool ToolId="47" Selected="True" />
+        <Tool ToolId="55" Selected="True" />
+        <Tool ToolId="58" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>

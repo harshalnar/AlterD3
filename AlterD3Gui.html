@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>D3 Dynamic Reporting</title>
+
+    <link rel="stylesheet" href="codemirror.css">
+    <script src="codemirror.js"></script>
+    <script src="mode/xml/xml.js"></script>
+    <script src="mode/javascript/javascript.js"></script>
+    <script src="mode/css/css.js"></script>
+    <script src="mode/htmlmixed/htmlmixed.js"></script>
+    <script type="text/javascript">
+        document.write(`<link rel="import" href="${window.Alteryx.LibDir}2/lib/includes.html">`)
+    </script>
+</head>
+<body>
+	<article>
+        <section>
+            <h2>Source JS Files</h2>
+            <ayx data-ui-props='{type:"TextArea", widgetId:"URLS", rows:2, placeholder:"URLs to JS Files"}'></ayx>
+        </section>
+        <section>
+            <h2 class='blueTitle'>HTML / JS</h2>
+            <textarea id="html" style="height: 1.5em"></textarea>
+        </section>
+        <section>
+            <h2 class='blueTitle'>Output HTML File</h2>
+            <ayx data-ui-props='{type:"CheckBox", widgetId:"SaveFile", label:"Write to file"}'></ayx>
+        </section>
+        <section id="OutputFileName" style="visibility: hidden;">
+            <h3 for="">Name</h3>
+            <ayx data-ui-props='{type:"TextBox", widgetId:"FileName"}'></ayx>
+        </section>
+        <section>
+            <h2 class='blueTitle'>Preview</h2>
+            <ayx data-ui-props='{type:"Button", widgetId:"buttonPreview", label:"Generate Preview", onClick:buttonClicked, category:"primary"}'></ayx>
+            <h3 id="previewError" style="visibility: hidden"></h3>
+            <div id="previewHTML"></div>
+        </section>
+	</article>
+    <script type="text/javascript" src="AlterD3Helpers.js"></script>
+    <script type="text/javascript" src="AlterD3Gui.js"></script>
+</body>
+</html>

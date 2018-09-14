@@ -1,0 +1,1184 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2018.3">
+  <Nodes>
+    <Node ToolID="24">
+      <GuiSettings Plugin="AlterD3">
+        <Position x="138" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="URLS">https://d3js.org/d3.v4.min.js</Value>
+          <Value name="HTML"><![CDATA[<div id="ChartHtml">
+    <div id="chartDiv" style="background-color: white;">
+        <svg id="chartSVG" font-family="sans-serif" font-size="10" text-anchor="middle"></svg>
+    </div>
+    <script>
+        const width = 800
+        const height = 800
+
+        const svg = d3.select("#chartSVG")
+        svg.attr('width', width)
+        svg.attr('height', height)
+
+        const format = d3.format(",d")
+		const color = d3.scaleOrdinal(d3.schemeCategory20c)
+		const pack = d3.pack().size([width, height]).padding(1.5)
+        
+        const classes = alteryxData()
+        
+        const root = d3.hierarchy({children: classes})
+      		.sum((d) => d.value)
+      		.each((d) => {
+            	if (id = d.data.id) {
+          			var id, i = id.lastIndexOf(".")
+          			d.id = id
+          			d.package = id.slice(0, i)
+          			d.class = id.slice(i + 1)
+                }
+            })
+
+  		const node = svg.selectAll(".node")
+        	.data(pack(root).leaves())
+        	.enter().append("g")
+        	.attr("class", "node")
+      		.attr("transform", (d) => `translate(${d.x},${d.y})`)
+        
+        node.append("circle")
+          	.attr("id", (d) => d.id)
+          	.attr("r", (d) => d.r)
+          	.style("fill", (d) => color(d.package))
+
+      	node.append("clipPath").attr("id", (d) => `clip-${d.id}`)
+        	.append("use").attr("xlink:href", (d) => `#${d.id}`)
+
+      	node.append("text").attr("clip-path", (d) => `url(#clip-${d.id})`)
+        	.selectAll("tspan")
+          	.data((d) => d.class.split(/(?=[A-Z][^A-Z])/g))
+          	.enter().append("tspan")
+          	.attr("x", 0)
+          	.attr("y", (d, i, nodes) => (13 + (i - nodes.length / 2 - 0.5) * 10))
+          	.text((d) => d)
+
+		node.append("title").text((d) => `${d.id}\n${format(d.value)}`)
+    </script>
+</div>
+]]></Value>
+          <Value name="SaveFile">False</Value>
+          <Value name="FileName">C:\temp\output.html</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings Macro="AlterD3/Supporting_Macros/D3 Chart.yxmc" EngineDll="Macro" EngineDllEntryPoint="AlterD3/Supporting_Macros/D3 Chart.yxmc" />
+    </Node>
+    <Node ToolID="26">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="258" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_7128_4ecab8916d6544b49572b80db516049b_\Engine_17140_c0965d34badb444384978fdec18d2b68_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Report</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="31">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="18" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="252" />
+          <Fields>
+            <Field name="id" />
+            <Field name="value" />
+          </Fields>
+          <Data>
+            <r>
+              <c>flare</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.analytics</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.analytics.cluster</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.analytics.cluster.AgglomerativeCluster</c>
+              <c>3938</c>
+            </r>
+            <r>
+              <c>flare.analytics.cluster.CommunityStructure</c>
+              <c>3812</c>
+            </r>
+            <r>
+              <c>flare.analytics.cluster.HierarchicalCluster</c>
+              <c>6714</c>
+            </r>
+            <r>
+              <c>flare.analytics.cluster.MergeEdge</c>
+              <c>743</c>
+            </r>
+            <r>
+              <c>flare.analytics.graph</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.analytics.graph.BetweennessCentrality</c>
+              <c>3534</c>
+            </r>
+            <r>
+              <c>flare.analytics.graph.LinkDistance</c>
+              <c>5731</c>
+            </r>
+            <r>
+              <c>flare.analytics.graph.MaxFlowMinCut</c>
+              <c>7840</c>
+            </r>
+            <r>
+              <c>flare.analytics.graph.ShortestPaths</c>
+              <c>5914</c>
+            </r>
+            <r>
+              <c>flare.analytics.graph.SpanningTree</c>
+              <c>3416</c>
+            </r>
+            <r>
+              <c>flare.analytics.optimization</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.analytics.optimization.AspectRatioBanker</c>
+              <c>7074</c>
+            </r>
+            <r>
+              <c>flare.animate</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.animate.Easing</c>
+              <c>17010</c>
+            </r>
+            <r>
+              <c>flare.animate.FunctionSequence</c>
+              <c>5842</c>
+            </r>
+            <r>
+              <c>flare.animate.interpolate</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.animate.interpolate.ArrayInterpolator</c>
+              <c>1983</c>
+            </r>
+            <r>
+              <c>flare.animate.interpolate.ColorInterpolator</c>
+              <c>2047</c>
+            </r>
+            <r>
+              <c>flare.animate.interpolate.DateInterpolator</c>
+              <c>1375</c>
+            </r>
+            <r>
+              <c>flare.animate.interpolate.Interpolator</c>
+              <c>8746</c>
+            </r>
+            <r>
+              <c>flare.animate.interpolate.MatrixInterpolator</c>
+              <c>2202</c>
+            </r>
+            <r>
+              <c>flare.animate.interpolate.NumberInterpolator</c>
+              <c>1382</c>
+            </r>
+            <r>
+              <c>flare.animate.interpolate.ObjectInterpolator</c>
+              <c>1629</c>
+            </r>
+            <r>
+              <c>flare.animate.interpolate.PointInterpolator</c>
+              <c>1675</c>
+            </r>
+            <r>
+              <c>flare.animate.interpolate.RectangleInterpolator</c>
+              <c>2042</c>
+            </r>
+            <r>
+              <c>flare.animate.ISchedulable</c>
+              <c>1041</c>
+            </r>
+            <r>
+              <c>flare.animate.Parallel</c>
+              <c>5176</c>
+            </r>
+            <r>
+              <c>flare.animate.Pause</c>
+              <c>449</c>
+            </r>
+            <r>
+              <c>flare.animate.Scheduler</c>
+              <c>5593</c>
+            </r>
+            <r>
+              <c>flare.animate.Sequence</c>
+              <c>5534</c>
+            </r>
+            <r>
+              <c>flare.animate.Transition</c>
+              <c>9201</c>
+            </r>
+            <r>
+              <c>flare.animate.Transitioner</c>
+              <c>19975</c>
+            </r>
+            <r>
+              <c>flare.animate.TransitionEvent</c>
+              <c>1116</c>
+            </r>
+            <r>
+              <c>flare.animate.Tween</c>
+              <c>6006</c>
+            </r>
+            <r>
+              <c>flare.data</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.data.converters</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.data.converters.Converters</c>
+              <c>721</c>
+            </r>
+            <r>
+              <c>flare.data.converters.DelimitedTextConverter</c>
+              <c>4294</c>
+            </r>
+            <r>
+              <c>flare.data.converters.GraphMLConverter</c>
+              <c>9800</c>
+            </r>
+            <r>
+              <c>flare.data.converters.IDataConverter</c>
+              <c>1314</c>
+            </r>
+            <r>
+              <c>flare.data.converters.JSONConverter</c>
+              <c>2220</c>
+            </r>
+            <r>
+              <c>flare.data.DataField</c>
+              <c>1759</c>
+            </r>
+            <r>
+              <c>flare.data.DataSchema</c>
+              <c>2165</c>
+            </r>
+            <r>
+              <c>flare.data.DataSet</c>
+              <c>586</c>
+            </r>
+            <r>
+              <c>flare.data.DataSource</c>
+              <c>3331</c>
+            </r>
+            <r>
+              <c>flare.data.DataTable</c>
+              <c>772</c>
+            </r>
+            <r>
+              <c>flare.data.DataUtil</c>
+              <c>3322</c>
+            </r>
+            <r>
+              <c>flare.display</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.display.DirtySprite</c>
+              <c>8833</c>
+            </r>
+            <r>
+              <c>flare.display.LineSprite</c>
+              <c>1732</c>
+            </r>
+            <r>
+              <c>flare.display.RectSprite</c>
+              <c>3623</c>
+            </r>
+            <r>
+              <c>flare.display.TextSprite</c>
+              <c>10066</c>
+            </r>
+            <r>
+              <c>flare.flex</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.flex.FlareVis</c>
+              <c>4116</c>
+            </r>
+            <r>
+              <c>flare.physics</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.physics.DragForce</c>
+              <c>1082</c>
+            </r>
+            <r>
+              <c>flare.physics.GravityForce</c>
+              <c>1336</c>
+            </r>
+            <r>
+              <c>flare.physics.IForce</c>
+              <c>319</c>
+            </r>
+            <r>
+              <c>flare.physics.NBodyForce</c>
+              <c>10498</c>
+            </r>
+            <r>
+              <c>flare.physics.Particle</c>
+              <c>2822</c>
+            </r>
+            <r>
+              <c>flare.physics.Simulation</c>
+              <c>9983</c>
+            </r>
+            <r>
+              <c>flare.physics.Spring</c>
+              <c>2213</c>
+            </r>
+            <r>
+              <c>flare.physics.SpringForce</c>
+              <c>1681</c>
+            </r>
+            <r>
+              <c>flare.query</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.query.AggregateExpression</c>
+              <c>1616</c>
+            </r>
+            <r>
+              <c>flare.query.And</c>
+              <c>1027</c>
+            </r>
+            <r>
+              <c>flare.query.Arithmetic</c>
+              <c>3891</c>
+            </r>
+            <r>
+              <c>flare.query.Average</c>
+              <c>891</c>
+            </r>
+            <r>
+              <c>flare.query.BinaryExpression</c>
+              <c>2893</c>
+            </r>
+            <r>
+              <c>flare.query.Comparison</c>
+              <c>5103</c>
+            </r>
+            <r>
+              <c>flare.query.CompositeExpression</c>
+              <c>3677</c>
+            </r>
+            <r>
+              <c>flare.query.Count</c>
+              <c>781</c>
+            </r>
+            <r>
+              <c>flare.query.DateUtil</c>
+              <c>4141</c>
+            </r>
+            <r>
+              <c>flare.query.Distinct</c>
+              <c>933</c>
+            </r>
+            <r>
+              <c>flare.query.Expression</c>
+              <c>5130</c>
+            </r>
+            <r>
+              <c>flare.query.ExpressionIterator</c>
+              <c>3617</c>
+            </r>
+            <r>
+              <c>flare.query.Fn</c>
+              <c>3240</c>
+            </r>
+            <r>
+              <c>flare.query.If</c>
+              <c>2732</c>
+            </r>
+            <r>
+              <c>flare.query.IsA</c>
+              <c>2039</c>
+            </r>
+            <r>
+              <c>flare.query.Literal</c>
+              <c>1214</c>
+            </r>
+            <r>
+              <c>flare.query.Match</c>
+              <c>3748</c>
+            </r>
+            <r>
+              <c>flare.query.Maximum</c>
+              <c>843</c>
+            </r>
+            <r>
+              <c>flare.query.methods</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.query.methods.add</c>
+              <c>593</c>
+            </r>
+            <r>
+              <c>flare.query.methods.and</c>
+              <c>330</c>
+            </r>
+            <r>
+              <c>flare.query.methods.average</c>
+              <c>287</c>
+            </r>
+            <r>
+              <c>flare.query.methods.count</c>
+              <c>277</c>
+            </r>
+            <r>
+              <c>flare.query.methods.distinct</c>
+              <c>292</c>
+            </r>
+            <r>
+              <c>flare.query.methods.div</c>
+              <c>595</c>
+            </r>
+            <r>
+              <c>flare.query.methods.eq</c>
+              <c>594</c>
+            </r>
+            <r>
+              <c>flare.query.methods.fn</c>
+              <c>460</c>
+            </r>
+            <r>
+              <c>flare.query.methods.gt</c>
+              <c>603</c>
+            </r>
+            <r>
+              <c>flare.query.methods.gte</c>
+              <c>625</c>
+            </r>
+            <r>
+              <c>flare.query.methods.iff</c>
+              <c>748</c>
+            </r>
+            <r>
+              <c>flare.query.methods.isa</c>
+              <c>461</c>
+            </r>
+            <r>
+              <c>flare.query.methods.lt</c>
+              <c>597</c>
+            </r>
+            <r>
+              <c>flare.query.methods.lte</c>
+              <c>619</c>
+            </r>
+            <r>
+              <c>flare.query.methods.max</c>
+              <c>283</c>
+            </r>
+            <r>
+              <c>flare.query.methods.min</c>
+              <c>283</c>
+            </r>
+            <r>
+              <c>flare.query.methods.mod</c>
+              <c>591</c>
+            </r>
+            <r>
+              <c>flare.query.methods.mul</c>
+              <c>603</c>
+            </r>
+            <r>
+              <c>flare.query.methods.neq</c>
+              <c>599</c>
+            </r>
+            <r>
+              <c>flare.query.methods.not</c>
+              <c>386</c>
+            </r>
+            <r>
+              <c>flare.query.methods.or</c>
+              <c>323</c>
+            </r>
+            <r>
+              <c>flare.query.methods.orderby</c>
+              <c>307</c>
+            </r>
+            <r>
+              <c>flare.query.methods.range</c>
+              <c>772</c>
+            </r>
+            <r>
+              <c>flare.query.methods.select</c>
+              <c>296</c>
+            </r>
+            <r>
+              <c>flare.query.methods.stddev</c>
+              <c>363</c>
+            </r>
+            <r>
+              <c>flare.query.methods.sub</c>
+              <c>600</c>
+            </r>
+            <r>
+              <c>flare.query.methods.sum</c>
+              <c>280</c>
+            </r>
+            <r>
+              <c>flare.query.methods.update</c>
+              <c>307</c>
+            </r>
+            <r>
+              <c>flare.query.methods.variance</c>
+              <c>335</c>
+            </r>
+            <r>
+              <c>flare.query.methods.where</c>
+              <c>299</c>
+            </r>
+            <r>
+              <c>flare.query.methods.xor</c>
+              <c>354</c>
+            </r>
+            <r>
+              <c>flare.query.methods._</c>
+              <c>264</c>
+            </r>
+            <r>
+              <c>flare.query.Minimum</c>
+              <c>843</c>
+            </r>
+            <r>
+              <c>flare.query.Not</c>
+              <c>1554</c>
+            </r>
+            <r>
+              <c>flare.query.Or</c>
+              <c>970</c>
+            </r>
+            <r>
+              <c>flare.query.Query</c>
+              <c>13896</c>
+            </r>
+            <r>
+              <c>flare.query.Range</c>
+              <c>1594</c>
+            </r>
+            <r>
+              <c>flare.query.StringUtil</c>
+              <c>4130</c>
+            </r>
+            <r>
+              <c>flare.query.Sum</c>
+              <c>791</c>
+            </r>
+            <r>
+              <c>flare.query.Variable</c>
+              <c>1124</c>
+            </r>
+            <r>
+              <c>flare.query.Variance</c>
+              <c>1876</c>
+            </r>
+            <r>
+              <c>flare.query.Xor</c>
+              <c>1101</c>
+            </r>
+            <r>
+              <c>flare.scale</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.scale.IScaleMap</c>
+              <c>2105</c>
+            </r>
+            <r>
+              <c>flare.scale.LinearScale</c>
+              <c>1316</c>
+            </r>
+            <r>
+              <c>flare.scale.LogScale</c>
+              <c>3151</c>
+            </r>
+            <r>
+              <c>flare.scale.OrdinalScale</c>
+              <c>3770</c>
+            </r>
+            <r>
+              <c>flare.scale.QuantileScale</c>
+              <c>2435</c>
+            </r>
+            <r>
+              <c>flare.scale.QuantitativeScale</c>
+              <c>4839</c>
+            </r>
+            <r>
+              <c>flare.scale.RootScale</c>
+              <c>1756</c>
+            </r>
+            <r>
+              <c>flare.scale.Scale</c>
+              <c>4268</c>
+            </r>
+            <r>
+              <c>flare.scale.ScaleType</c>
+              <c>1821</c>
+            </r>
+            <r>
+              <c>flare.scale.TimeScale</c>
+              <c>5833</c>
+            </r>
+            <r>
+              <c>flare.util</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.util.Arrays</c>
+              <c>8258</c>
+            </r>
+            <r>
+              <c>flare.util.Colors</c>
+              <c>10001</c>
+            </r>
+            <r>
+              <c>flare.util.Dates</c>
+              <c>8217</c>
+            </r>
+            <r>
+              <c>flare.util.Displays</c>
+              <c>12555</c>
+            </r>
+            <r>
+              <c>flare.util.Filter</c>
+              <c>2324</c>
+            </r>
+            <r>
+              <c>flare.util.Geometry</c>
+              <c>10993</c>
+            </r>
+            <r>
+              <c>flare.util.heap</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.util.heap.FibonacciHeap</c>
+              <c>9354</c>
+            </r>
+            <r>
+              <c>flare.util.heap.HeapNode</c>
+              <c>1233</c>
+            </r>
+            <r>
+              <c>flare.util.IEvaluable</c>
+              <c>335</c>
+            </r>
+            <r>
+              <c>flare.util.IPredicate</c>
+              <c>383</c>
+            </r>
+            <r>
+              <c>flare.util.IValueProxy</c>
+              <c>874</c>
+            </r>
+            <r>
+              <c>flare.util.math</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.util.math.DenseMatrix</c>
+              <c>3165</c>
+            </r>
+            <r>
+              <c>flare.util.math.IMatrix</c>
+              <c>2815</c>
+            </r>
+            <r>
+              <c>flare.util.math.SparseMatrix</c>
+              <c>3366</c>
+            </r>
+            <r>
+              <c>flare.util.Maths</c>
+              <c>17705</c>
+            </r>
+            <r>
+              <c>flare.util.Orientation</c>
+              <c>1486</c>
+            </r>
+            <r>
+              <c>flare.util.palette</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.util.palette.ColorPalette</c>
+              <c>6367</c>
+            </r>
+            <r>
+              <c>flare.util.palette.Palette</c>
+              <c>1229</c>
+            </r>
+            <r>
+              <c>flare.util.palette.ShapePalette</c>
+              <c>2059</c>
+            </r>
+            <r>
+              <c>flare.util.palette.SizePalette</c>
+              <c>2291</c>
+            </r>
+            <r>
+              <c>flare.util.Property</c>
+              <c>5559</c>
+            </r>
+            <r>
+              <c>flare.util.Shapes</c>
+              <c>19118</c>
+            </r>
+            <r>
+              <c>flare.util.Sort</c>
+              <c>6887</c>
+            </r>
+            <r>
+              <c>flare.util.Stats</c>
+              <c>6557</c>
+            </r>
+            <r>
+              <c>flare.util.Strings</c>
+              <c>22026</c>
+            </r>
+            <r>
+              <c>flare.vis</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.vis.axis</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.vis.axis.Axes</c>
+              <c>1302</c>
+            </r>
+            <r>
+              <c>flare.vis.axis.Axis</c>
+              <c>24593</c>
+            </r>
+            <r>
+              <c>flare.vis.axis.AxisGridLine</c>
+              <c>652</c>
+            </r>
+            <r>
+              <c>flare.vis.axis.AxisLabel</c>
+              <c>636</c>
+            </r>
+            <r>
+              <c>flare.vis.axis.CartesianAxes</c>
+              <c>6703</c>
+            </r>
+            <r>
+              <c>flare.vis.controls</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.vis.controls.AnchorControl</c>
+              <c>2138</c>
+            </r>
+            <r>
+              <c>flare.vis.controls.ClickControl</c>
+              <c>3824</c>
+            </r>
+            <r>
+              <c>flare.vis.controls.Control</c>
+              <c>1353</c>
+            </r>
+            <r>
+              <c>flare.vis.controls.ControlList</c>
+              <c>4665</c>
+            </r>
+            <r>
+              <c>flare.vis.controls.DragControl</c>
+              <c>2649</c>
+            </r>
+            <r>
+              <c>flare.vis.controls.ExpandControl</c>
+              <c>2832</c>
+            </r>
+            <r>
+              <c>flare.vis.controls.HoverControl</c>
+              <c>4896</c>
+            </r>
+            <r>
+              <c>flare.vis.controls.IControl</c>
+              <c>763</c>
+            </r>
+            <r>
+              <c>flare.vis.controls.PanZoomControl</c>
+              <c>5222</c>
+            </r>
+            <r>
+              <c>flare.vis.controls.SelectionControl</c>
+              <c>7862</c>
+            </r>
+            <r>
+              <c>flare.vis.controls.TooltipControl</c>
+              <c>8435</c>
+            </r>
+            <r>
+              <c>flare.vis.data</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.vis.data.Data</c>
+              <c>20544</c>
+            </r>
+            <r>
+              <c>flare.vis.data.DataList</c>
+              <c>19788</c>
+            </r>
+            <r>
+              <c>flare.vis.data.DataSprite</c>
+              <c>10349</c>
+            </r>
+            <r>
+              <c>flare.vis.data.EdgeSprite</c>
+              <c>3301</c>
+            </r>
+            <r>
+              <c>flare.vis.data.NodeSprite</c>
+              <c>19382</c>
+            </r>
+            <r>
+              <c>flare.vis.data.render</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.vis.data.render.ArrowType</c>
+              <c>698</c>
+            </r>
+            <r>
+              <c>flare.vis.data.render.EdgeRenderer</c>
+              <c>5569</c>
+            </r>
+            <r>
+              <c>flare.vis.data.render.IRenderer</c>
+              <c>353</c>
+            </r>
+            <r>
+              <c>flare.vis.data.render.ShapeRenderer</c>
+              <c>2247</c>
+            </r>
+            <r>
+              <c>flare.vis.data.ScaleBinding</c>
+              <c>11275</c>
+            </r>
+            <r>
+              <c>flare.vis.data.Tree</c>
+              <c>7147</c>
+            </r>
+            <r>
+              <c>flare.vis.data.TreeBuilder</c>
+              <c>9930</c>
+            </r>
+            <r>
+              <c>flare.vis.events</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.vis.events.DataEvent</c>
+              <c>2313</c>
+            </r>
+            <r>
+              <c>flare.vis.events.SelectionEvent</c>
+              <c>1880</c>
+            </r>
+            <r>
+              <c>flare.vis.events.TooltipEvent</c>
+              <c>1701</c>
+            </r>
+            <r>
+              <c>flare.vis.events.VisualizationEvent</c>
+              <c>1117</c>
+            </r>
+            <r>
+              <c>flare.vis.legend</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.vis.legend.Legend</c>
+              <c>20859</c>
+            </r>
+            <r>
+              <c>flare.vis.legend.LegendItem</c>
+              <c>4614</c>
+            </r>
+            <r>
+              <c>flare.vis.legend.LegendRange</c>
+              <c>10530</c>
+            </r>
+            <r>
+              <c>flare.vis.operator</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.vis.operator.distortion</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.vis.operator.distortion.BifocalDistortion</c>
+              <c>4461</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.distortion.Distortion</c>
+              <c>6314</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.distortion.FisheyeDistortion</c>
+              <c>3444</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.encoder</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.vis.operator.encoder.ColorEncoder</c>
+              <c>3179</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.encoder.Encoder</c>
+              <c>4060</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.encoder.PropertyEncoder</c>
+              <c>4138</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.encoder.ShapeEncoder</c>
+              <c>1690</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.encoder.SizeEncoder</c>
+              <c>1830</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.filter</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.vis.operator.filter.FisheyeTreeFilter</c>
+              <c>5219</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.filter.GraphDistanceFilter</c>
+              <c>3165</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.filter.VisibilityFilter</c>
+              <c>3509</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.IOperator</c>
+              <c>1286</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.label</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.vis.operator.label.Labeler</c>
+              <c>9956</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.label.RadialLabeler</c>
+              <c>3899</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.label.StackedAreaLabeler</c>
+              <c>3202</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.layout</c>
+              <c />
+            </r>
+            <r>
+              <c>flare.vis.operator.layout.AxisLayout</c>
+              <c>6725</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.layout.BundledEdgeRouter</c>
+              <c>3727</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.layout.CircleLayout</c>
+              <c>9317</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.layout.CirclePackingLayout</c>
+              <c>12003</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.layout.DendrogramLayout</c>
+              <c>4853</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.layout.ForceDirectedLayout</c>
+              <c>8411</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.layout.IcicleTreeLayout</c>
+              <c>4864</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.layout.IndentedTreeLayout</c>
+              <c>3174</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.layout.Layout</c>
+              <c>7881</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.layout.NodeLinkTreeLayout</c>
+              <c>12870</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.layout.PieLayout</c>
+              <c>2728</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.layout.RadialTreeLayout</c>
+              <c>12348</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.layout.RandomLayout</c>
+              <c>870</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.layout.StackedAreaLayout</c>
+              <c>9121</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.layout.TreeMapLayout</c>
+              <c>9191</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.Operator</c>
+              <c>2490</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.OperatorList</c>
+              <c>5248</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.OperatorSequence</c>
+              <c>4190</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.OperatorSwitch</c>
+              <c>2581</c>
+            </r>
+            <r>
+              <c>flare.vis.operator.SortOperator</c>
+              <c>2023</c>
+            </r>
+            <r>
+              <c>flare.vis.Visualization</c>
+              <c>16540</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="24" Connection="Output" />
+      <Destination ToolID="26" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="24" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Test AlterD3</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

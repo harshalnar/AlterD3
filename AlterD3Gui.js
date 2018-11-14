@@ -104,7 +104,7 @@ Alteryx.Gui.AfterLoad = function (manager, AlteryxDataItems) {
         if (matches.length == 0) matches.push("https://d3js.org/d3.v5.min.js")
         manager.getDataItem('URLS').setValue(matches.join('\n'))
 
-        editor.doc.setValue(t)
+        editor.doc.setValue(t.replace(/<!-- ref: .*?-->\r?gti c\n/g, ""))
       })
 
     // Read Me

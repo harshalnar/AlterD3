@@ -64,11 +64,76 @@ Alteryx.Gui.AfterLoad = function (manager, AlteryxDataItems) {
 
   const fileItem = manager.getDataItem('SaveFile')
   document.getElementById('OutputFileName').style.visibility = fileItem.getValue() ? 'visible' : 'hidden'
-  fileItem.registerPropertyListener('value', () => { document.getElementById('OutputFileName').style.visibility = fileItem.getValue() ? 'visible' : 'hidden' })
+  fileItem.registerPropertyListener('value', () => {
+    document.getElementById('OutputFileName').style.visibility = fileItem.getValue() ? 'visible' : 'hidden'
+  })
 
   const htmlItem = manager.getDataItem('HTML')
   editor.doc.setValue(htmlItem.getValue())
   editor.on('change', () => htmlItem.setValue(editor.doc.getValue()))
+
+  const templateItem = new AlteryxDataItems.StringSelector('Template')
+  manager.bindDataItemToWidget(templateItem, 'Template')
+  fetch('https://api.github.com/users/jdunkerley/gists')
+    .then(r => r.json())
+    .then(j => {
+      var filtered = j.filter(i => i.description.startsWith('AlterD3 '))
+        .map(i => {
+          return {
+            label: i.description.replace('AlterD3 ', ''),
+            value: JSON.stringify(i.files)
+          }
+        })
+      templateItem.setOptionList(filtered)
+    })
+  templateItem.registerPropertyListener('value', () => {
+    const json = JSON.parse(templateItem.getValue())
+    const keys = Object.keys(json)
+
+    // First HTML File
+    fetch(json[keys.filter(k => k.endsWith(".html"))[0]].raw_url)
+      .then(r => r.text())
+      .then(t => {
+        const re = /<!-- ref: ([^ ]+) .*?-->/g
+
+        const matches = []
+        let match
+        while (match = re.exec(t)) {
+          matches.push(match[1])
+        }
+        if (matches.length == 0) matches.push("https://d3js.org/d3.v5.min.js")
+        manager.getDataItem('URLS').setValue(matches.join('\n'))
+
+        editor.doc.setValue(t)
+      })
+
+    // Read Me
+    const markDown = keys.filter(k => k.endsWith(".md"))
+    document.getElementById('ReadMe').innerHTML = ""
+    if (markDown.length > 0) {
+      fetch(json[keys.filter(k => k.endsWith(".md"))[0]].raw_url)
+        .then(r => r.text())
+        .then(t => {
+          fetch('https://api.github.com/markdown', {
+              method: 'POST',
+              body: JSON.stringify({
+                text: t,
+                mode: "gfm",
+                context: "github/jdunkerley"
+              }),
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            })
+            .then(r => r.text())
+            .then(t => document.getElementById('ReadMe').innerHTML = t)
+        })
+    }
+
+    // Image
+    const image = keys.filter(k => k.endsWith(".png"))
+    document.getElementById('Image').innerHTML = (image.length > 0 ? `<img src="${json[image[0]].raw_url}" width="80%" style="margin: 0 auto; display: block;" alt="${image[0].replace(".png", "")}" />` : '')
+  })
 }
 
 Alteryx.Gui.BeforeGetConfiguration = function (json) {
